@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyprian Makori | Web Developer & Doctor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner container">
+            <i class="fa-solid fa-address-card text-3xl text-white mr-3"></i>
+            <a href="#" class="logo">D V L P R </a>
+            <div class="nav-links" id="nav-links">
+
+                <a href="#about" class="hover-text-blue-600 transition">About</a>
+                <a href="#skills" class="hover-text-blue-600 transition">Skills</a>
+                <a href="#projects" class="hover-text-blue-600 transition">Projects</a>
+                <a href="#journey" class="hover-text-blue-600 transition">Journey</a>
+                <a href="#contact" class="hover-text-blue-600 transition">Contact</a>
+            </div>
+            <button class="menu-button" id="menu-button" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <section class="text-white relative overflow-hidden min-h-screen flex items-center" style="background-color: black;">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 " style="font-family: avinga;">Software Developer, Designer and Data Analysit</h1>
+                <h2 class="text-2xl md:text-3xl mb-6" style="font-family: Gamgote;">Cyprian(Your favourite Developer & Doctor)</h2>
+                <p class="text-lg mb-8 max-w-lg">Bridging healthcare and technology to create innovative solutions that make a difference.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Get In Touch</a>
+                    <a href="#projects" class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative floating">
+                    <img src="images/workstation.jpg"
+                         alt="Home office setup" 
+                         class="rounded-lg shadow-2xl w-full max-w-md border-4 border-white">
+                    <div class="absolute -bottom-5 -right-5 bg-blue-800 p-3 rounded-lg shadow-lg">
+                        <i class="fas fa-laptop-code text-3xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Parallax Background -->
+    <section id="about" class="py-20 relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('images/travel\ agency.jpg'); background-size: cover; background-position: center; color: rgb(241, 240, 243); font-family: gauter;">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div>
+                        <img src="images/profile.jpg" 
+                             alt="Profile picture" 
+                             class="rounded-full shadow-lg w-48 h-48 object-cover mx-auto">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-6">
+                        Hello! I'm Cyprian Makori, a passionate web developer with a unique background in optometry. 
+                        I hold a degree in Optometry from Masinde Muliro University of Science and Technology (MMUST) in Kenya, 
+                        and I've transitioned into the tech world through self-directed learning.
+                    </p>
+                    <p class="text-lg mb-6">
+                        My journey into web development began with freeCodeCamp, The Odin Project, and other online resources. 
+                        I've mastered HTML, CSS, and JavaScript, and I'm currently expanding my skills with React.js, Node.js, 
+                        MongoDB, and Express.js.
+                    </p>
+                    <a href="files/Resume.pdf" download class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition">
+                        Download My CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 relative overflow-hidden text-white">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Technical Skills</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-html5 text-5xl text-yellow-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">HTML5</h3>
+                    <p class="text-gray-600">Advanced</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-css3-alt text-5xl text-blue-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">CSS3</h3>
+                    <p class="text-gray-600">Advanced</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-js text-5xl text-yellow-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">JavaScript</h3>
+                    <p class="text-gray-600">Advanced</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-react text-5xl text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold text-lg">React.js</h3>
+                    <p class="text-gray-600">Intermediate</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-node-js text-5xl text-green-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Node.js</h3>
+                    <p class="text-gray-600">Learning</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-database text-5xl text-green-600 mb-3"></i>
+                    <h3 class="font-semibold text-lg">MongoDB</h3>
+                    <p class="text-gray-600">Learning</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fas fa-server text-5xl text-gray-700 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Express.js</h3>
+                    <p class="text-gray-600">Learning</p>
+                </div>
+                <div class="tech-icon bg-black p-6 rounded-lg shadow-md text-center">
+                    <i class="fab fa-git-alt text-5xl text-orange-600 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Git</h3>
+                    <p class="text-gray-600">Intermediate</p>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-center mb-8">Learning Journey</h3>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto floating">
+                <div class="flex flex-wrap justify-center gap-4">
+<a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-graduation-cap mr-2"></i>
+    <span>freeCodeCamp</span>
+</a>
+<a href="https://www.theodinproject.com/" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-book-open mr-2"></i>
+    <span>The Odin Project</span>
+</a>
+<a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-globe mr-2"></i>
+    <span>w3schools</span>
+</a>
+<a href="https://www.edx.org/" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-university mr-2"></i>
+    <span>edX</span>
+</a>
+<a href="https://www.youtube.com/@BroCode" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-code mr-2"></i>
+    <span>BroCode</span>
+</a>
+<a href="https://roadmap.sh/" target="_blank" rel="noopener noreferrer" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+    <i class="fas fa-map mr-2"></i>
+    <span>roadmap.sh</span>
+</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Projects Section with Parallax Background -->
+    <section id="projects" class="py-20 relative overflow-hidden" style="background-color: #3B3B3B;">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">Featured Projects</h2>
+        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 floating">
+                    <img src="images/trade.jpg" 
+                         alt="E-commerce project" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="192" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">E-Commerce Website</h3>
+                        <p class="text-white-600 mb-4 text-white">A fully responsive online store with shopping cart functionality built with HTML, CSS, and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4 text-white">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML5</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.2s; background-color: #2f2f2f;">
+                    <img src="images/dashb.jpg" 
+                         alt="Medical dashboard" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="192" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Optometry Clinic Dashboard</h3>
+                        <p class=" mb-4 text-white">A patient management system for eye clinics, combining my medical and tech expertise.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Node.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.4s; background-color: #2f2f2f;">
+                    <img src="images/wther.jpg" 
+                         alt="Weather app" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="216" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Weather Application</h3>
+                        <p class="text-white mb-4">A weather forecast app using API integration with geolocation features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">API</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.4s; background-color: #2f2f2f">
+                    <img src="images/travel.webp" 
+                         alt="Weather app" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="216" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Traveling Agency Website</h3>
+                        <p class="text-white mb-4">A modern traveling agency website designed to showcase destinations, packages, and travel services with an engaging user interface. Features include interactive booking forms, destination highlights, and seamless integration with travel APIs for real-time information.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"> 
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">API</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.4s; background-color: #2f2f2f;">
+                    <img src="images/survey.webp" 
+                         alt="Weather app" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="216" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Survey Web Application</h3>
+                        <p class="text-white mb-4">A dynamic survey web application that enables users to create, distribute, and analyze surveys with ease. Built using JavaScript, APIs, and modern CSS, it provides real-time feedback and insightful analytics for better decision-making.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">API</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.4s; background-color: #2f2f2f;">
+                    <img src="images/feedback.jpg" 
+                         alt="Hotel app" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="216" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Hotel Feedback Page</h3>
+                        <p class="text-white mb-4">A user-friendly feedback page that allows hotel guests to submit reviews and ratings, helping management improve their services. Built with HTML, JavaScript, API integration, and modern CSS for a seamless experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">API</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card rounded-lg overflow-hidden border border-gray-200 floating" style="animation-delay: 0.4s; background-color: #9A8174">
+                    <img src="images/event hub.jpg" 
+                         alt="Hotel app" 
+                         class="w-full h-48 object-cover"
+                         width="384" height="216" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-white">Event Hub Page</h3>
+                        <p class="text-white mb-4">An interactive event hub page that allows users to discover, register for, and manage events with ease. Built using modern web technologies, it features real-time updates, user authentication, and a responsive design for seamless event experiences.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">API</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">CSS3</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition floating">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section><!-- Journey Section with Parallax Background -->
+    <section id="journey" class="py-20 bg-green-100 relative overflow-hidden">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">My Professional Journey</h2>
+        <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline -->
+                <div class="space-y-8">
+                    <!-- Education 1 -->
+                    <div class="timeline-item relative pl-16 floating">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Masinde Muliro University of Science and Technology (MMUST)</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2015 - 2020</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Bachelor of Optometry</p>
+                            <p class="text-gray-700">
+                                Earned my degree in Optometry, gaining extensive knowledge in eye care, vision science, and patient management.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Career 1 -->
+                    <div class="timeline-item relative pl-16 floating" style="animation-delay: 0.2s;">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Optometrist</h3>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">2020 - Present</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Various Healthcare Facilities</p>
+                            <p class="text-gray-700">
+                                Provided comprehensive eye care services, diagnosed and managed ocular diseases, and prescribed corrective lenses.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Education 2 -->
+                    <div class="timeline-item relative pl-16 floating" style="animation-delay: 0.4s;">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Self-Taught Web Development</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">2024 - Present</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Online Learning Platforms</p>
+                            <p class="text-gray-700">
+                                Mastered HTML, CSS, and JavaScript through freeCodeCamp, The Odin Project, and other resources. Currently learning MERN stack development.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Career 2 -->
+                    <div class="timeline-item relative pl-16 floating" style="animation-delay: 0.6s;">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Freelance Web Developer</h3>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">2024 - Present</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Various Clients</p>
+                            <p class="text-gray-700">
+                                Building responsive websites and web applications for small businesses and healthcare providers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Parallax Background -->
+    <section id="contact" class="py-20 text-white relative overflow-hidden" style="background-color: #2f2f2f">
+        <div class="parallax-overlay"></div>
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Get In Touch</h2>
+            
+            <div class="flex flex-col md:flex-row gap-12 max-w-6xl mx-auto">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
+                    <p class="mb-8 text-blue-100">
+                        Whether you're looking for a web developer, have questions about my unique background, 
+                        or want to discuss potential collaborations, I'd love to hear from you!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start floating">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-blue-200">makoricyprian@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start floating" style="animation-delay: 0.2s;">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-blue-200">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start floating" style="animation-delay: 0.4s;">
+                            <div class="bg-blue-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-globe-africa text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Timezone</h4>
+                                <p class="text-blue-200">East Africa Time (GMT+3)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 flex space-x-4">
+                        <a href="https://www.linkedin.com/in/cyprian-makori-83553b1b6/" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in text-xl" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://github.com/okangi/_Cy-codes" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github text-xl" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://www.freecodecamp.org/Cyprian_Okangi" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-free-code-camp text-xl" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://x.com/Stablem03215463" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-twitter" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://www.instagram.com/makor_cypryan/?igsh=MmxkNzgzNnk3MnVn#" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-instagram" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1FeiTsMrp3/?mibextid=qi2Omg" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-square-facebook" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@cyprianonkan?_t=ZM-8utGazZOO7Z&_r=1" class="text-blue-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-tiktok" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="mailto:makoricyprian@gmail.com" class="text-blue-300 hover:text-white transition">
+                            <i class="fa-solid fa-envelope" style="font-size: 2em;" ></i>
+                        </a>
+                        <a href="https://wa.me/0702266017?text=Hello%20I%20want%20to%20contact%20you" class="text-green-300 hover:text-white transition" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 2em;"></i>
+                        </a>
+                    </div>
+                    <br>
+                    <br>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-green-100 rounded-lg shadow-xl p-8 text-gray-800">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-900">Send Me a Message</h3>
+                        
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="enter your name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="enter your email">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Subject">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-white py-12" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('images/office.jpg'); background-size: cover; background-position: center; color: rgb(241, 240, 243); font-family: gauter;">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Cyprian Makori</h3>
+                    <p class="text-blue-300">Web Developer & Doctor</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#about" class="hover:text-blue-400 transition">About</a>
+                    <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                    <a href="#journey" class="hover:text-blue-400 transition">Journey</a>
+                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-blue-400 mb-4 md:mb-0">© 2025 Cyprian Makori. All rights reserved.</p>
+                
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle (could be expanded)
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Parallax Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const layers = document.querySelectorAll('.parallax-layer');
+            
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                
+                layers.forEach(layer => {
+                    const speed = parseFloat(layer.getAttribute('data-speed')) || 0.2;
+                    const yPos = -(scrollPosition * speed);
+                    layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                });
+            });
+        });
+        
+        // Floating animation for elements
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

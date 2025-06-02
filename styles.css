@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #0b0b0c 0%, #112e46 100%);
+}
+
+.tech-icon {
+    transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+    transform: translateY(-5px);
+}
+
+.project-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 2px;
+    height: 20px;
+    background-color: #e5e7eb;
+    transform: translateX(-50%);
+}
+
+.blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(30, 58, 138, 0.2) 100%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.blob-1 {
+    top: -100px;
+    right: -100px;
+}
+
+.blob-2 {
+    bottom: -100px;
+    left: -100px;
+}
+
+/* Parallax Styles */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform;
+}
+
+.layer-1 {
+    background-image: url('https://www.svgrepo.com/show/530129/code-alt.svg');
+    background-position: 10% 30%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.layer-2 {
+    background-image: url('https://www.svgrepo.com/show/530129/code-alt.svg');
+    background-position: 90% 70%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Additional styles for navigation */
+nav {
+    background-color: #112e46;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3b82f6;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive menu button */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #112e46;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+/* Buttons */
+a.bg-white, a.bg-blue-600, button {
+    transition: background-color 0.3s ease;
+}
+
+a.bg-white:hover {
+    background-color: #f3f4f6;
+}
+
+a.bg-blue-600:hover, button:hover {
+    background-color: #2563eb;
+}
+
+/* Cards */
+.project-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #1e40af;
+    color: #e0e7ff;
+    padding: 3rem 1rem;
+}
+
+footer a:hover {
+    color: #93c5fd;
+}
+/* Add this to your styles.css or inside a <style> tag */
+/* filepath: e:\OneDrive\Desktop\Portfolio\styles.css */
+@keyframes fadeInColor {
+  0% {
+    opacity: 0;
+    color: #fefefe; /* Start color (blue-800) */
+  }
+  50% {
+    opacity: 0.5;
+    color: #d4d404; /* Mid color (blue-600) */
+  }
+  100% {
+    opacity: 1;
+    color: #059669; /* End color (emerald-600/green-600) */
+  }
+}
+
+.fade-in-color {
+  animation: fadeInColor 1.5s ease forwards infinite;
+}
+#intro-overlay {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 1s;
+}
+#intro-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
