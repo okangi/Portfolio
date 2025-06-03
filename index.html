@@ -27,7 +27,8 @@
             </button>
         </div>
     </nav>
-
+    <!--snap scroll wrapper start-->>
+<div class="snap-y snap-mandatory h-screen overflow-y-scroll">
     <!-- Hero Section with Parallax -->
     <section class="text-white relative overflow-hidden min-h-screen flex items-center" style="background-color: black;">
     <div class="blob blob-1"></div>
@@ -85,7 +86,6 @@
                         Qualities I now channel into building intuitive, impactful software solutions. 
                         I’m passionate about leveraging technology to solve real-world problems and am excited to contribute my diverse skills to innovative development teams.
                     </p>
-                    <!-- ...existing code... -->
                     <p class="text-lg mb-6">
                         My journey into web development started with a spark of curiosity and a drive to create. 
                         I dove into hands-on learning through renowned platforms like 
@@ -104,7 +104,7 @@
         </div>
     </section>
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 relative overflow-hidden text-white floating">
+    <section id="skills" class="py-20 bg-gradient-to-r from-green-500 via-red-500 to-yellow-500 relative overflow-hidden text-white floating min-h-screen snap-start">
         <div class="parallax-layer layer-1"></div>
         <div class="parallax-layer layer-2"></div>
         <div class="container mx-auto px-6 relative">
@@ -185,7 +185,7 @@
         </div>
     </section>
 <!-- Projects Section -->
-    <section id="projects" class="py-20 relative overflow-hidden" style="background-color: #3B3B3B;">
+    <section id="projects" class="py-20 relative overflow-hidden min-h-screen snap-start" style="background-color: #3B3B3B;">
         <div class="parallax-layer layer-1"></div>
         <div class="parallax-layer layer-2"></div>
         <div class="container mx-auto px-6 relative">
@@ -373,7 +373,7 @@
         </div>
     </section>
     <!-- Professional Journey Section -->
-    <section id="journey" class="py-20 bg-green-100 relative overflow-hidden">
+    <section id="journey" class="py-20 bg-green-100 relative overflow-hidden min-h-screen snap-start">
         <div class="parallax-layer layer-1"></div>
         <div class="parallax-layer layer-2"></div>
         <div class="container mx-auto px-6 relative">
@@ -454,7 +454,7 @@
     </section>
 
     <!-- Contact Section  -->
-    <section id="contact" class="py-20 text-white relative overflow-hidden" style="background-color: #2f2f2f">
+    <section id="contact" class="py-20 text-white relative overflow-hidden min-h-screen snap-start" style="background-color: #2f2f2f">
         <div class="parallax-overlay"></div>
         <div class="container mx-auto px-6 relative">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Get In Touch</h2>
@@ -579,7 +579,8 @@
             </div>
         </div>
     </footer>
-
+</div>
+<!--snap scroll wrapper end-->
     
     <script>
         // Simple JavaScript for mobile menu toggle (could be expanded)
