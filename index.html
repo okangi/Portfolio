@@ -371,6 +371,24 @@
             background: #0f172a;
             min-height: 210px;
         }
+        /* Fix form input visibility */
+    #contact-form input,
+    #contact-form textarea {
+    color: #ffffff !important;
+    background: rgba(15, 25, 45, 0.8) !important;
+    }
+
+    #contact-form input::placeholder,
+    #contact-form textarea::placeholder {
+    color: #94a3b8 !important;
+    }
+
+    /* Fix autofill */
+    #contact-form input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+    -webkit-background-clip: text;
+    transition: background-color 5000s ease-in-out 0s;
+    }
     </style>
 </head>
 <body>
