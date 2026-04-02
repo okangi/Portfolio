@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Cyprian Makori | Doctor of Code & Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050b14;
+            color: #f0f3fa;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(15, 25, 45, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .glass-card:hover {
+            border-color: rgba(96, 165, 250, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.4);
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .project-tile {
+            background: rgba(12, 20, 35, 0.65);
+            backdrop-filter: blur(14px);
+            border-radius: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .project-tile:hover {
+            transform: translateY(-12px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 25px 35px -18px rgba(0, 0, 0, 0.5);
+        }
+        .project-img {
+            height: 210px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .project-tile:hover .project-img {
+            transform: scale(1.05);
+        }
+        .overlay-btns {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-tile:hover .overlay-btns {
+            opacity: 1;
+        }
+        @keyframes floatSoft {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animate {
+            animation: floatSoft 5s ease-in-out infinite;
+        }
+        .timeline-glow {
+            background: rgba(20, 30, 50, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            border-left: 4px solid #3b82f6;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-glass {
+            background: rgba(8, 14, 26, 0.85);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #3b82f6;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #60a5fa;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 8px; }
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.25), rgba(6,182,212,0.1));
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .btn-glow {
+            transition: all 0.2s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 8px 25px -5px #3b82f6;
+        }
+        @media (max-width: 640px) {
+            .project-grid { grid-template-columns: 1fr; }
+        }
+        .dark-mode {
+            background-color: #0a0f1c;
+        }
+        /* Add after existing styles */
+        .page-transition {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #static-highlight {
+        display: none !important;
+        }
+                /* PDF Modal Styles - Add to existing CSS */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pdf-modal.active {
+            display: flex;
+        }
+
+        .pdf-modal-content {
+            width: 90%;
+            max-width: 1000px;
+            height: 85vh;
+            background: rgba(20, 30, 50, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .close-modal-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal-btn:hover {
+            background: rgba(239, 68, 68, 0.8);
+            transform: rotate(90deg);
+        }
+
+        .pdf-viewer-container {
+            flex: 1;
+            background: #1a1a2e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pdf-modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            gap: 1rem;
+        }
+
+        .download-pdf-btn, .print-pdf-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-pdf-btn {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .download-pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .print-pdf-btn {
+            background: rgba(59, 130, 246, 0.8);
+            color: white;
+        }
+
+        .print-pdf-btn:hover {
+            transform: translateY(-2px);
+            background: #3b82f6;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .close-footer-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .close-footer-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* PDF Loader */
+        .pdf-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a2e;
+            z-index: 10;
+        }
+
+        .pdf-loader.hide {
+            display: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .pdf-modal-content {
+                width: 95%;
+                height: 90vh;
+                border-radius: 1rem;
+            }
+            
+            .pdf-modal-header h3 {
+                font-size: 1rem;
+            }
+            
+            .download-pdf-btn, .print-pdf-btn, .close-footer-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+        /* Force images to display */
+        .project-img {
+            display: block !important;
+            width: 100% !important;
+            height: 210px !important;
+            object-fit: cover !important;
+            background: #1e293b;
+        }
+
+        /* Fallback background color */
+        .project-tile .relative.overflow-hidden {
+            background: #0f172a;
+            min-height: 210px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-glass fixed top-0 w-full z-50 py-3 px-6 md:px-12 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-stethoscope text-2xl text-blue-400"></i>
+                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">D V L P R</span>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="nav-link text-gray-200 hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="nav-link text-gray-200 hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="nav-link text-gray-200 hover:text-blue-400 transition">Projects</a>
+                <a href="#journey" class="nav-link text-gray-200 hover:text-blue-400 transition">Journey</a>
+                <a href="#contact" class="nav-link text-gray-200 hover:text-blue-400 transition">Contact</a>
+                <button id="theme-toggle" class="text-gray-200 hover:text-yellow-300 text-xl"><i class="fas fa-moon"></i></button>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobile-nav" class="md:hidden hidden flex-col bg-[#0a0f1c]/90 backdrop-blur-xl rounded-2xl mt-3 p-5 space-y-4 border border-white/10">
+            <a href="#about" class="nav-link text-white text-lg py-2">About</a>
+            <a href="#skills" class="nav-link text-white text-lg py-2">Skills</a>
+            <a href="#projects" class="nav-link text-white text-lg py-2">Projects</a>
+            <a href="#journey" class="nav-link text-white text-lg py-2">Journey</a>
+            <a href="#contact" class="nav-link text-white text-lg py-2">Contact</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="hero-blob top-20 -left-40"></div>
+        <div class="hero-blob bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/20"></div>
+        <div class="max-w-7xl mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 reveal-on-scroll">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm font-medium border border-white/20">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    Doctor · Developer · Innovator
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Cyprian</span>
+                </h1>
+                <div class="text-2xl md:text-3xl font-semibold">
+                    <span id="dynamic-typing" class="text-blue-300"></span>
+                    <span id="static-highlight" class="text-white ml-1">Bridging Healthcare & Tech</span>
+                </div>
+                <p class="text-gray-300 text-lg max-w-lg">Optometrist turned full-stack developer. I build elegant digital tools that heal workflows and empower people.</p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-7 py-3 rounded-full font-semibold transition-all btn-glow shadow-lg shadow-blue-600/20">Let's Connect <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="#projects" class="glass-card px-7 py-3 rounded-full font-medium hover:bg-white/10 transition">Explore Work</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center reveal-on-scroll" style="transition-delay: 0.1s;">
+                <div class="relative glass-card p-2 rounded-3xl float-animate">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="developer setup" class="rounded-2xl w-full max-w-md shadow-2xl border border-white/20">
+                    <div class="absolute -bottom-5 -right-3 bg-gradient-to-tr from-blue-700 to-indigo-800 p-3 rounded-2xl shadow-xl backdrop-blur">
+                        <i class="fas fa-laptop-code text-2xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative">
+        <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-fixed opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">About Me</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 flex justify-center reveal-on-scroll">
+                    <div class="glass-card p-2 rounded-full w-56 h-56 flex items-center justify-center">
+                        <img src="/images/profile.jpg" alt="Cyprian profile" class="rounded-full w-full h-full object-cover border-4 border-white/40">
+                    </div>
+                </div>
+                <div class="md:w-1/2 space-y-5 reveal-on-scroll" style="transition-delay: 0.1s;">
+                    <p class="text-gray-200 text-lg leading-relaxed">As a former optometrist turned software developer, I bring clinical precision, empathy, and problem-solving to code. My healthcare background gave me a deep appreciation for user-centric design and data integrity — now I build full-stack apps that make a difference.</p>
+                    <p class="text-gray-300">Self-taught through freeCodeCamp, The Odin Project, and countless sleepless nights mastering React, Node, and modern JavaScript. My mission: bridge the gap between medical insight and tech innovation.</p>
+                    <a href="#" id="viewResumeBtn" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2.5 font-semibold hover:bg-white/20 transition group">
+                        <i class="fas fa-file-pdf text-red-400 group-hover:scale-110 transition"></i> 
+                             <span>View Resume</span>
+                        <i class="fas fa-eye text-xs opacity-70 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 relative bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+                    Digital Operating Tools
+                </h2>
+                <p class="text-blue-300 mt-3 text-sm uppercase tracking-wider">
+                    Precision Instruments for Modern Development 
+                 </p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-html5 text-5xl text-orange-500"></i><span class="font-semibold">HTML5</span><span class="text-xs text-gray-300">Advanced</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-css3-alt text-5xl text-blue-500"></i><span class="font-semibold">CSS3</span><span class="text-xs text-gray-300">Tailwind, Flex/Grid</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-js text-5xl text-yellow-400"></i><span class="font-semibold">JavaScript</span><span class="text-xs text-gray-300">ES6+</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-react text-5xl text-cyan-400"></i><span class="font-semibold">React</span><span class="text-xs text-gray-300">Hooks, Router</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-node-js text-5xl text-green-500"></i><span class="font-semibold">Node.js</span><span class="text-xs text-gray-300">Express, REST</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fas fa-database text-5xl text-emerald-500"></i><span class="font-semibold">MongoDB</span><span class="text-xs text-gray-300">Mongoose</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fab fa-git-alt text-5xl text-rose-500"></i><span class="font-semibold">Git/GitHub</span><span class="text-xs text-gray-300">CI ready</span></div>
+                <div class="glass-card p-5 text-center flex flex-col items-center gap-3 reveal-on-scroll"><i class="fas fa-cloud text-5xl text-sky-400"></i><span class="font-semibold">REST APIs</span><span class="text-xs text-gray-300">Integration</span></div>
+            </div>
+            <div class="mt-16 text-center reveal-on-scroll">
+                <div class="glass-card inline-block px-8 py-4 max-w-2xl mx-auto">
+                    <p class="text-gray-200"><i class="fas fa-graduation-cap text-blue-400 mr-2"></i> Always learning: TypeScript, Next.js, Docker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 relative bg-black/40">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold">Featured Creations</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+        </div>
+        <div class="project-grid">
+            <!-- MediCart E-commerce -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden">
+                    <img src="https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg?auto=compress&cs=tinysrgb&w=600" alt="ecommerce" class="project-img">
+                    <div class="overlay-btns"><a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500 hover:text-white transition"><i class="fab fa-github mr-1"></i> Code</a><a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Live →</a></div>
+                </div>
+                <div class="p-5"><h3 class="text-xl font-bold">MediCart E‑commerce</h3><p class="text-gray-300 text-sm mt-1">Health essentials store with cart & payment simulation.</p><div class="flex gap-2 mt-3"><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">React</span><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">CSS</span></div></div>
+            </div>
+
+            <!-- Optometry Clinic Hub -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden"><img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600" alt="clinic dashboard" class="project-img"><div class="overlay-btns"><a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500"><i class="fab fa-github mr-1"></i> GitHub</a><a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Demo →</a></div></div>
+                <div class="p-5"><h3 class="text-xl font-bold">Optometry Clinic Hub</h3><p class="text-gray-300 text-sm">Patient records & appointment tracker (MERN stack)</p><div class="flex gap-2 mt-3"><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">Node.js</span><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">MongoDB</span></div></div>
+            </div>
+
+            <!-- SkyCast Weather -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden"><img src="https://images.pexels.com/photos/209224/pexels-photo-209224.jpeg?auto=compress&cs=tinysrgb&w=600" alt="weather app" class="project-img"><div class="overlay-btns"><a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500"><i class="fab fa-github mr-1"></i> Repo</a><a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Live →</a></div></div>
+                <div class="p-5"><h3 class="text-xl font-bold">SkyCast Weather</h3><p class="text-gray-300 text-sm">Real-time forecasts with geolocation & OpenWeather API.</p><div class="flex gap-2 mt-3"><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">API</span><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">JavaScript</span></div></div>
+            </div>
+
+            <!-- Wanderly Travel -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden"><img src="https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=600" alt="travel agency" class="project-img"><div class="overlay-btns"><a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500"><i class="fab fa-github mr-1"></i> Code</a><a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Preview →</a></div></div>
+                <div class="p-5"><h3 class="text-xl font-bold">Wanderly Travel</h3><p class="text-gray-300 text-sm">Modern travel booking UI with destination filters.</p><div class="flex gap-2 mt-3"><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">Tailwind</span><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">Responsive</span></div></div>
+            </div>
+
+            <!-- Patient Feedback Hub - WORKING IMAGE -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden">
+                    <img src="https://placehold.co/600x400/0f172a/3b82f6?text=📊+Patient+Feedback+Hub" alt="Patient feedback dashboard" class="project-img">
+                    <div class="overlay-btns">
+                        <a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500 hover:text-white transition"><i class="fab fa-github mr-1"></i> Code</a>
+                        <a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Live →</a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold">Patient Feedback Hub</h3>
+                    <p class="text-gray-300 text-sm mt-1">Analyze clinic satisfaction with charts & reports.</p>
+                    <div class="flex gap-2 mt-3">
+                        <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">Chart.js</span>
+                        <span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">LocalStorage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotelie Reviews -->
+            <div class="project-tile relative reveal-on-scroll">
+                <div class="relative overflow-hidden"><img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hotel feedback" class="project-img"><div class="overlay-btns"><a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-500"><i class="fab fa-github mr-1"></i> Repo</a><a href="#" class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/40 transition">Demo →</a></div></div>
+                <div class="p-5"><h3 class="text-xl font-bold">Hotelie Reviews</h3><p class="text-gray-300 text-sm">Guest review system with rating stars & admin panel</p><div class="flex gap-2 mt-3"><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">Express</span><span class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">JWT</span></div></div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section id="journey" class="py-24 relative bg-gradient-to-t from-gray-900 to-slate-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll"><h2 class="text-4xl md:text-5xl font-bold">Professional Journey</h2><div class="w-24 h-1 bg-blue-500 mx-auto mt-3"></div></div>
+            <div class="space-y-8">
+                <div class="timeline-glow p-6 flex flex-col md:flex-row gap-4 reveal-on-scroll"><div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center"><i class="fas fa-graduation-cap text-xl"></i></div><div><h3 class="text-xl font-bold">B.Optometry · MMUST</h3><p class="text-blue-300 text-sm">2015 – 2020</p><p class="text-gray-300">Foundation in patient care, diagnostics, and clinical precision.</p></div></div>
+                <div class="timeline-glow p-6 flex flex-col md:flex-row gap-4 reveal-on-scroll"><div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center"><i class="fas fa-briefcase"></i></div><div><h3 class="text-xl font-bold">Optometrist (Clinical Practice)</h3><p class="text-blue-300 text-sm">2020 – Present</p><p class="text-gray-300">Diagnosed ocular diseases, managed patient journeys — empathy under pressure.</p></div></div>
+                <div class="timeline-glow p-6 flex flex-col md:flex-row gap-4 reveal-on-scroll"><div class="w-12 h-12 rounded-full bg-cyan-600 flex items-center justify-center"><i class="fas fa-laptop-code"></i></div><div><h3 class="text-xl font-bold">Full-Stack Dev (Self-Taught)</h3><p class="text-blue-300 text-sm">2024 – Now</p><p class="text-gray-300">freeCodeCamp, Odin Project, MERN mastery. 10+ projects shipped.</p></div></div>
+                <div class="timeline-glow p-6 flex flex-col md:flex-row gap-4 reveal-on-scroll"><div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center"><i class="fas fa-globe"></i></div><div><h3 class="text-xl font-bold">Freelance Web Developer</h3><p class="text-blue-300 text-sm">2024 – Active</p><p class="text-gray-300">Crafting custom websites for small biz & healthcare providers.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative bg-black/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 reveal-on-scroll"><h2 class="text-4xl md:text-5xl font-bold">Let's Collaborate</h2><p class="text-blue-300 mt-2">Reach out — let's build something impactful.</p></div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 space-y-6 reveal-on-scroll">
+                    <div class="flex items-center gap-4"><div class="bg-blue-600/30 p-3 rounded-xl"><i class="fas fa-envelope text-2xl"></i></div><div><h4 class="font-bold">Email</h4><p class="text-gray-300">makoricyprian@gmail.com</p></div></div>
+                    <div class="flex items-center gap-4"><div class="bg-blue-600/30 p-3 rounded-xl"><i class="fas fa-map-marker-alt"></i></div><div><h4 class="font-bold">Location</h4><p class="text-gray-300">Nairobi, Kenya (EAT)</p></div></div>
+                    <div class="flex justify-around pt-6"><a href="#" class="text-3xl text-blue-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a><a href="#" class="text-3xl text-gray-300 hover:text-white"><i class="fab fa-github"></i></a><a href="#" class="text-3xl text-green-400"><i class="fab fa-whatsapp"></i></a><a href="#" class="text-3xl text-sky-400"><i class="fab fa-twitter"></i></a></div>
+                </div>
+                <div class="glass-card p-8 reveal-on-scroll">
+                    <form id="contact-form" class="space-y-5">
+                        <input type="text" name="user_name" placeholder="Full name" required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
+                        <input type="email" name="user_email" placeholder="Email address" required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white">
+                        <input type="text" name="subject" placeholder="Subject" class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white">
+                        <textarea name="message" rows="4" placeholder="Your message..." required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white"></textarea>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-xl font-bold transition-all shadow-lg">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
+                    </form>
+                    <p id="form-status" class="text-center text-sm mt-3 hidden"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-white/10 text-center text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6">© 2025 Cyprian Makori — Doctor of Code & Compassion. All visions crafted.</div>
+    </footer>
+        <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 text-center text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            © 2026 Cyprian Makori — Doctor of Code & Compassion. All visions crafted.
+        </div>
+    </footer>
+
+    <!-- ========== PDF MODAL - PLACED RIGHT HERE (After footer, before closing body) ========== -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-modal-content glass-card">
+            <div class="pdf-modal-header">
+                <h3 class="text-xl font-bold">
+                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>
+                    My Resume
+                </h3>
+                <button id="closePdfModal" class="close-modal-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- PDF Viewer -->
+            <div class="pdf-viewer-container">
+                <div id="pdfLoader" class="pdf-loader">
+                    <div class="loader-spinner"></div>
+                    <p class="mt-3 text-gray-400">Loading resume...</p>
+                </div>
+                <iframe id="pdfFrame" class="pdf-iframe" frameborder="0"></iframe>
+            </div>
+            
+            <!-- Footer with Download Option -->
+            <div class="pdf-modal-footer">
+                <div class="flex gap-3">
+                    <button id="downloadResumeBtn" class="download-pdf-btn">
+                        <i class="fas fa-download mr-2"></i> Download PDF
+                    </button>
+                    <button id="printResumeBtn" class="print-pdf-btn">
+                        <i class="fas fa-print mr-2"></i> Print
+                    </button>
+                </div>
+                <button id="closePdfModalFooter" class="close-footer-btn">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- ========== END PDF MODAL ========== -->
+
+    <script>
+        
+            (function() {
+                // ========== YOUR EXISTING CODE (keep as is) ==========
+                // Typing effect
+                const typingSpan = document.getElementById('dynamic-typing');
+                const staticSpan = document.getElementById('static-highlight');
+                const fullText = "Bridging Healthcare & Technology";
+                let idx = 0;
+                
+                if(typingSpan && staticSpan) {
+                    staticSpan.style.display = "none";
+                    typingSpan.textContent = "";
+                    function typeWriter() {
+                        if(idx < fullText.length) {
+                            typingSpan.textContent += fullText.charAt(idx);
+                            idx++;
+                            setTimeout(typeWriter, 45);
+                        } else {
+                            typingSpan.style.display = "inline";
+                            staticSpan.style.display = "inline-block";
+                            staticSpan.classList.add("text-blue-300", "font-medium");
+                        }
+                    }
+                    typeWriter();
+                }
+
+                // Mobile menu toggle
+                const mobileBtn = document.getElementById('mobile-menu-btn');
+                const mobileNav = document.getElementById('mobile-nav');
+                if(mobileBtn && mobileNav) {
+                    mobileBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+                    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileNav.classList.add('hidden')));
+                }
+
+                // Scroll reveal observer
+                const reveals = document.querySelectorAll('.reveal-on-scroll');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) entry.target.classList.add('revealed');
+                    });
+                }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+                reveals.forEach(el => observer.observe(el));
+
+                // Active nav highlight
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    const scrollPosition = window.scrollY + 200;
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        if(scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        const href = link.getAttribute('href');
+                        if(href === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+
+                // Dark mode toggle
+                const themeToggle = document.getElementById('theme-toggle');
+                if(themeToggle) {
+                    if(localStorage.getItem('darkMode') === 'true') {
+                        document.body.classList.add('dark-mode');
+                        document.body.style.backgroundColor = "#17181aff";
+                    }
+                    themeToggle.addEventListener('click', () => {
+                        document.body.classList.toggle('dark-mode');
+                        const isDark = document.body.classList.contains('dark-mode');
+                        localStorage.setItem('darkMode', isDark);
+                        if(isDark) {
+                            document.body.style.backgroundColor = "#0b1120";
+                        } else {
+                            document.body.style.backgroundColor = "";
+                        }
+                    });
+                }
+
+                // EmailJS
+                if(typeof emailjs !== 'undefined') {
+                    emailjs.init("YOUR_PUBLIC_KEY");
+                    const form = document.getElementById('contact-form');
+                    const statusMsg = document.getElementById('form-status');
+                    if(form) {
+                        form.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const btn = form.querySelector('button[type="submit"]');
+                            const originalText = btn.innerHTML;
+                            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                            btn.disabled = true;
+                            if(statusMsg) {
+                                statusMsg.classList.add('hidden');
+                                statusMsg.textContent = '';
+                            }
+                            emailjs.sendForm('service_placeholder', 'template_placeholder', form)
+                                .then(() => {
+                                    if(statusMsg) {
+                                        statusMsg.textContent = '✓ Message sent successfully!';
+                                        statusMsg.classList.remove('hidden', 'text-red-400');
+                                        statusMsg.classList.add('text-green-400');
+                                    }
+                                    form.reset();
+                                    setTimeout(() => {
+                                        if(statusMsg) statusMsg.classList.add('hidden');
+                                    }, 5000);
+                                })
+                                .catch((error) => {
+                                    console.error('EmailJS Error:', error);
+                                    if(statusMsg) {
+                                        statusMsg.textContent = '⚠ Failed to send. Please email me directly';
+                                        statusMsg.classList.remove('hidden', 'text-green-400');
+                                        statusMsg.classList.add('text-yellow-400');
+                                    }
+                                })
+                                .finally(() => {
+                                    btn.innerHTML = originalText;
+                                    btn.disabled = false;
+                                });
+                        });
+                    }
+                }
+
+                // ========== NEW FEATURES (ADD BELOW) ==========
+                
+                // 1. 3D TILT EFFECT ON CARDS
+                const tiltElements = document.querySelectorAll('.project-tile, .glass-card');
+                tiltElements.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width - 0.5;
+                        const y = (e.clientY - rect.top) / rect.height - 0.5;
+                        card.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${y * -10}deg) translateY(-6px)`;
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = '';
+                    });
+                });
+
+                // 2. RIPPLE EFFECT ON BUTTONS
+                const rippleButtons = document.querySelectorAll('button, .btn-glow, .overlay-btn');
+                rippleButtons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple');
+                        const rect = btn.getBoundingClientRect();
+                        ripple.style.left = `${e.clientX - rect.left}px`;
+                        ripple.style.top = `${e.clientY - rect.top}px`;
+                        btn.style.position = 'relative';
+                        btn.style.overflow = 'hidden';
+                        btn.appendChild(ripple);
+                        setTimeout(() => ripple.remove(), 600);
+                    });
+                });
+
+                // 3. SCROLL PROGRESS BAR
+                const progressBar = document.createElement('div');
+                progressBar.style.cssText = `
+                    position: fixed; top: 0; left: 0; height: 3px;
+                    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+                    width: 0%; z-index: 10000; transition: width 0.1s;
+                `;
+                document.body.appendChild(progressBar);
+                window.addEventListener('scroll', () => {
+                    const winScroll = document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progressBar.style.width = scrolled + '%';
+                });
+
+                // 4. BACK TO TOP BUTTON
+                const backToTop = document.createElement('button');
+                backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                backToTop.style.cssText = `
+                    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+                    border-radius: 50%; background: rgba(59,130,246,0.8); backdrop-filter: blur(8px);
+                    border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 20px;
+                    cursor: pointer; z-index: 1000; opacity: 0; visibility: hidden;
+                    transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                `;
+                document.body.appendChild(backToTop);
+                
+                window.addEventListener('scroll', () => {
+                    if(window.scrollY > 500) {
+                        backToTop.style.opacity = '1';
+                        backToTop.style.visibility = 'visible';
+                    } else {
+                        backToTop.style.opacity = '0';
+                        backToTop.style.visibility = 'hidden';
+                    }
+                });
+                
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                backToTop.addEventListener('mouseenter', () => {
+                    backToTop.style.transform = 'translateY(-5px)';
+                    backToTop.style.background = 'rgba(59,130,246,1)';
+                });
+                backToTop.addEventListener('mouseleave', () => {
+                    backToTop.style.transform = 'translateY(0)';
+                    backToTop.style.background = 'rgba(59,130,246,0.8)';
+                });
+
+                // 5. NUMBER COUNTERS (add data-target attributes to elements)
+                const counters = document.querySelectorAll('[data-counter]');
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            const el = entry.target;
+                            const target = parseInt(el.getAttribute('data-target'));
+                            let current = 0;
+                            const increment = target / 50;
+                            const updateCounter = () => {
+                                current += increment;
+                                if(current < target) {
+                                    el.textContent = Math.floor(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    el.textContent = target;
+                                }
+                            };
+                            updateCounter();
+                            counterObserver.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                counters.forEach(counter => counterObserver.observe(counter));
+
+                // 6. PARALLAX ON SCROLL (add class "parallax-bg" to elements)
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.scrollY;
+                    document.querySelectorAll('.parallax-bg').forEach(el => {
+                        el.style.transform = `translateY(${scrolled * 0.2}px)`;
+                    });
+                });
+
+                // 7. CUSTOM CURSOR (optional - uncomment if desired)
+                /*
+                const cursor = document.createElement('div');
+                const cursorDot = document.createElement('div');
+                cursor.className = 'custom-cursor';
+                cursorDot.className = 'cursor-dot';
+                document.body.appendChild(cursor);
+                document.body.appendChild(cursorDot);
+                
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+                    cursorDot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+                });
+                
+                document.querySelectorAll('a, button').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'scale(1.5)';
+                        cursorDot.style.transform = 'scale(1.5)';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'scale(1)';
+                        cursorDot.style.transform = 'scale(1)';
+                    });
+                });
+                */
+
+                // 8. SMOOTH REVEAL FOR PROJECT CARDS WITH STAGGER
+                const projectCards = document.querySelectorAll('.project-tile');
+                const staggerObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if(entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            }, index * 100);
+                            staggerObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                projectCards.forEach((card, i) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
+                    staggerObserver.observe(card);
+                });
+
+                // 9. HOVER FOLLOW GLOW EFFECT
+                const glowElements = document.querySelectorAll('.glass-card, .project-tile');
+                glowElements.forEach(el => {
+                    el.addEventListener('mousemove', (e) => {
+                        const rect = el.getBoundingClientRect();
+                        const x = ((e.clientX - rect.left) / rect.width) * 100;
+                        const y = ((e.clientY - rect.top) / rect.height) * 100;
+                        el.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(59,130,246,0.15), rgba(12,20,35,0.65))`;
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        el.style.background = '';
+                    });
+                });
+
+                // 10. TYPING MULTIPLE ROLES (cycle through professions)
+                const roleElement = document.getElementById('dynamic-typing');
+                if(roleElement && !typingSpan) { // Only if you want to replace existing typing
+                    const roles = ["Doctor ", "Developer ", "Innovator ", "Problem Solver "];
+                    let roleIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    
+                    function typeRoles() {
+                        const currentRole = roles[roleIndex];
+                        if(isDeleting) {
+                            roleElement.textContent = currentRole.substring(0, charIndex - 1);
+                            charIndex--;
+                        } else {
+                            roleElement.textContent = currentRole.substring(0, charIndex + 1);
+                            charIndex++;
+                        }
+                        
+                        if(!isDeleting && charIndex === currentRole.length) {
+                            isDeleting = true;
+                            setTimeout(typeRoles, 2000);
+                            return;
+                        }
+                        
+                        if(isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            roleIndex = (roleIndex + 1) % roles.length;
+                            setTimeout(typeRoles, 500);
+                            return;
+                        }
+                        
+                        setTimeout(typeRoles, isDeleting ? 50 : 100);
+                    }
+                    // typeRoles(); // Uncomment to enable
+                }
+                
+                            })();
+                    // ========== PDF MODAL FUNCTIONALITY ==========
+                const pdfModal = document.getElementById('pdfModal');
+                const viewResumeBtn = document.getElementById('viewResumeBtn');
+                const pdfFrame = document.getElementById('pdfFrame');
+                const pdfLoader = document.getElementById('pdfLoader');
+
+                // Function to open PDF modal
+                function openPdfModal() {
+                    // Set the PDF source - UPDATE THIS PATH
+                    const pdfPath = 'files/resume.pdf'; // Change to your actual file path
+                    
+                    pdfFrame.src = pdfPath;
+                    pdfModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Track view
+                    console.log('📄 Resume viewed in modal:', new Date().toLocaleString());
+                    
+                    // Track in localStorage
+                    let resumeViews = localStorage.getItem('resumeViews') || 0;
+                    resumeViews = parseInt(resumeViews) + 1;
+                    localStorage.setItem('resumeViews', resumeViews);
+                }
+
+                // Function to close PDF modal
+                function closePdfModal() {
+                    pdfModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Clear iframe and reset loader
+                    setTimeout(() => {
+                        pdfFrame.src = '';
+                        if(pdfLoader) pdfLoader.classList.remove('hide');
+                    }, 300);
+                }
+
+                // Function to download resume
+                function downloadResume() {
+                    const pdfPath = 'files/resume.pdf';
+                    const link = document.createElement('a');
+                    link.href = pdfPath;
+                    link.download = 'Cyprian_Makori_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Show success notification
+                    showDownloadNotification();
+                }
+
+                // Function to print resume
+                function printResume() {
+                    const iframe = pdfFrame;
+                    if(iframe && iframe.contentWindow) {
+                        iframe.contentWindow.print();
+                    } else {
+                        // Fallback: open in new tab and print
+                        window.open('files/resume.pdf', '_blank');
+                    }
+                }
+
+                // Function to show notification
+                function showDownloadNotification() {
+                    const notification = document.createElement('div');
+                    notification.innerHTML = '<i class="fas fa-check-circle text-green-400 mr-2"></i> Download started! Check your downloads folder.';
+                    notification.style.cssText = `
+                        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+                        background: rgba(0,0,0,0.9); backdrop-filter: blur(10px);
+                        color: white; padding: 12px 24px; border-radius: 50px;
+                        z-index: 10001; font-size: 14px; font-weight: 500;
+                        animation: slideUp 0.3s ease; border: 1px solid rgba(74, 222, 128, 0.3);
+                        white-space: nowrap;
+                    `;
+                    document.body.appendChild(notification);
+                    setTimeout(() => notification.remove(), 3000);
+                }
+
+                // Event Listeners
+                if(viewResumeBtn) {
+                    viewResumeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openPdfModal();
+                    });
+                }
+
+                // Close modal with escape key
+                document.addEventListener('keydown', (e) => {
+                    if(e.key === 'Escape' && pdfModal && pdfModal.classList.contains('active')) {
+                        closePdfModal();
+                    }
+                });
+
+                // Close modal when clicking outside
+                if(pdfModal) {
+                    pdfModal.addEventListener('click', (e) => {
+                        if(e.target === pdfModal) {
+                            closePdfModal();
+                        }
+                    });
+                }
+
+                // Close buttons
+                const closeButtons = ['closePdfModal', 'closePdfModalFooter'];
+                closeButtons.forEach(btnId => {
+                    const btn = document.getElementById(btnId);
+                    if(btn) {
+                        btn.addEventListener('click', closePdfModal);
+                    }
+                });
+
+                // Download button
+                const downloadBtn = document.getElementById('downloadResumeBtn');
+                if(downloadBtn) {
+                    downloadBtn.addEventListener('click', downloadResume);
+                }
+
+                // Print button
+                const printBtn = document.getElementById('printResumeBtn');
+                if(printBtn) {
+                    printBtn.addEventListener('click', printResume);
+                }
+
+                // Hide loader when iframe loads
+                if(pdfFrame) {
+                    pdfFrame.addEventListener('load', () => {
+                        if(pdfLoader) pdfLoader.classList.add('hide');
+                    });
+                }
+    </script>
+</body>
+</html>
