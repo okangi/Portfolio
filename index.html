@@ -563,30 +563,127 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 relative bg-black/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12 reveal-on-scroll"><h2 class="text-4xl md:text-5xl font-bold">Let's Collaborate</h2><p class="text-blue-300 mt-2">Reach out — let's build something impactful.</p></div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="glass-card p-8 space-y-6 reveal-on-scroll">
-                    <div class="flex items-center gap-4"><div class="bg-blue-600/30 p-3 rounded-xl"><i class="fas fa-envelope text-2xl"></i></div><div><h4 class="font-bold">Email</h4><p class="text-gray-300">makoricyprian@gmail.com</p></div></div>
-                    <div class="flex items-center gap-4"><div class="bg-blue-600/30 p-3 rounded-xl"><i class="fas fa-map-marker-alt"></i></div><div><h4 class="font-bold">Location</h4><p class="text-gray-300">Nairobi, Kenya (EAT)</p></div></div>
-                    <div class="flex justify-around pt-6"><a href="#" class="text-3xl text-blue-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a><a href="#" class="text-3xl text-gray-300 hover:text-white"><i class="fab fa-github"></i></a><a href="#" class="text-3xl text-green-400"><i class="fab fa-whatsapp"></i></a><a href="#" class="text-3xl text-sky-400"><i class="fab fa-twitter"></i></a></div>
+    <section id="contact" class="py-24 relative bg-gradient-to-br from-gray-900 to-slate-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Let's Connect</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Have a project in mind? Let's bring your ideas to life!</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <!-- Left Side - Contact Info -->
+            <div class="glass-card p-8 space-y-6 reveal-on-scroll">
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="bg-blue-600/30 p-3 rounded-xl">
+                        <i class="fas fa-envelope text-2xl text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Email Me</h4>
+                        <a href="mailto:makoricyprian@gmail.com" class="text-gray-300 hover:text-blue-400 transition">makoricyprian@gmail.com</a>
+                    </div>
                 </div>
-                <div class="glass-card p-8 reveal-on-scroll">
-                    <form id="contact-form" class="space-y-5">
-                        <input type="text" name="user_name" placeholder="Full name" required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-blue-500">
-                        <input type="email" name="user_email" placeholder="Email address" required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white">
-                        <input type="text" name="subject" placeholder="Subject" class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white">
-                        <textarea name="message" rows="4" placeholder="Your message..." required class="w-full bg-black/40 border border-white/20 rounded-xl px-5 py-3 text-white"></textarea>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-xl font-bold transition-all shadow-lg">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
-                    </form>
-                    <p id="form-status" class="text-center text-sm mt-3 hidden"></p>
+                
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="bg-green-600/30 p-3 rounded-xl">
+                        <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">WhatsApp</h4>
+                        <a href="https://wa.me/254702266017?text=Hello%20Cyprian,%20I%20saw%20your%20portfolio!" target="_blank" class="text-gray-300 hover:text-green-400 transition">+254 702 266 017</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="bg-purple-600/30 p-3 rounded-xl">
+                        <i class="fas fa-map-marker-alt text-2xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Location</h4>
+                        <p class="text-gray-300">Nairobi, Kenya (EAT/GMT+3)</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="bg-orange-600/30 p-3 rounded-xl">
+                        <i class="fas fa-clock text-2xl text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Response Time</h4>
+                        <p class="text-gray-300">Within 24 hours</p>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="pt-6 border-t border-white/10">
+                    <h4 class="font-bold text-white mb-4 text-center">Follow Me</h4>
+                    <div class="flex justify-center gap-4">
+                        <a href="https://github.com/okangi" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gray-700 transition-all hover:scale-110">
+                            <i class="fab fa-github text-lg text-white"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/cyprian-makori-83553b1" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-700 transition-all hover:scale-110">
+                            <i class="fab fa-linkedin-in text-lg text-white"></i>
+                        </a>
+                        <a href="https://x.com/Stablem03215463" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-700 transition-all hover:scale-110">
+                            <i class="fab fa-twitter text-lg text-white"></i>
+                        </a>
+                        <a href="https://www.freecodecamp.org/Cyprian_Okangi" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-700 transition-all hover:scale-110">
+                            <i class="fab fa-free-code-camp text-lg text-white"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Right Side - Contact Form with Formspree -->
+            <div class="glass-card p-8 reveal-on-scroll">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">Send a Message</h3>
+                
+                <!-- YOUR FORMSPREE ENDPOINT IS INTEGRATED BELOW -->
+                <form id="contact-form" action="https://formspree.io/f/xzdkagjv" method="POST" class="space-y-5">
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" name="name" placeholder="Your Name" required 
+                               class="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                    
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="email" name="email" placeholder="Your Email" required 
+                               class="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                    
+                    <div class="relative">
+                        <i class="fas fa-tag absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" name="subject" placeholder="Subject" 
+                               class="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                    
+                    <div class="relative">
+                        <i class="fas fa-comment absolute left-4 top-4 text-gray-400"></i>
+                        <textarea name="message" rows="5" placeholder="Your Message..." required 
+                                  class="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition resize-none"></textarea>
+                    </div>
+                    
+                    <!-- Formspree anti-spam -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <button type="submit" id="submitBtn" 
+                            class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send Message</span>
+                    </button>
+                    
+                    <div id="form-status" class="text-center text-sm mt-3 hidden"></div>
+                </form>
+                
+                <p class="text-xs text-gray-400 text-center mt-6">
+                    <i class="fas fa-lock mr-1"></i> Your information is safe and will never be shared
+                </p>
+            </div>
         </div>
+    </div>
     </section>
-
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="py-8 border-t border-white/10 text-center text-gray-400 text-sm">
         <div class="max-w-7xl mx-auto px-6">
             © 2026 Cyprian Makori — Doctor of Code & Compassion. All visions crafted.
@@ -1102,6 +1199,59 @@
                         if(pdfLoader) pdfLoader.classList.add('hide');
                     });
                 }
+                // Formspree AJAX submission handler
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+        }
+        
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            if (response.ok) {
+                showFormStatus('✓ Message sent successfully! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Submission failed.';
+                showFormStatus(`⚠️ ${errorMsg} Please try again or email me directly.`, 'error');
+            }
+        } catch (error) {
+            console.error('Form error:', error);
+            showFormStatus('⚠️ Network error. Please check your connection.', 'error');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span>Send Message</span>';
+            }
+              }
+             });
+        }
+
+        function showFormStatus(message, type) {
+        if (formStatus) {
+        formStatus.textContent = message;
+        formStatus.classList.remove('hidden', 'text-green-400', 'text-red-400');
+        formStatus.classList.add(type === 'success' ? 'text-green-400' : 'text-red-400');
+        formStatus.classList.remove('hidden');
+         setTimeout(() => formStatus.classList.add('hidden'), 5000);
+         }
+        }
     </script>
 </body>
 </html>
