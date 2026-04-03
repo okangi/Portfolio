@@ -372,36 +372,64 @@
             min-height: 210px;
         }
         /* Fix form input visibility */
-    #contact-form input,
-    #contact-form textarea {
-    color: #ffffff !important;
-    background: rgba(15, 25, 45, 0.8) !important;
-    }
+        #contact-form input,
+        #contact-form textarea {
+            color: #ffffff !important;
+            background: rgba(15, 25, 45, 0.8) !important;
+        }
 
-    #contact-form input::placeholder,
-    #contact-form textarea::placeholder {
-    color: #242424 !important;
-    
-    }
+        #contact-form input::placeholder,
+        #contact-form textarea::placeholder {
+        color: #242424 !important;
+            
+       }
 
-    /* Fix autofill */
-    #contact-form input:-webkit-autofill {
-    -webkit-text-fill-color: white !important;
-    -webkit-background-clip: text;
-    transition: background-color 5000s ease-in-out 0s;
-    }
-    /* Fix placeholder visibility on light backgrounds */
-    #contact-form input::placeholder,
-    #contact-form textarea::placeholder {
-    color: #f0f1f3 !important;  /* Darker gray */
-    opacity: 1 !important;
-    }
+        /* Fix autofill */
+         #contact-form input:-webkit-autofill {
+         -webkit-text-fill-color: white !important;
+         -webkit-background-clip: text;
+          transition: background-color 5000s ease-in-out 0s;
+         }
+            /* Fix placeholder visibility on light backgrounds */
+        #contact-form input::placeholder,
+        #contact-form textarea::placeholder {
+        color: #f0f1f3 !important;  /* Darker gray */
+        opacity: 1 !important;
+         }
 
-    #contact-form input,
-    #contact-form textarea {
-    background: rgba(0, 0, 0, 0.6) !important;  /* Darker background */
-    color: white !important;
-    }
+        #contact-form input,
+        #contact-form textarea {
+            background: rgba(0, 0, 0, 0.6) !important;  /* Darker background */
+            color: white !important;
+        }
+                    /* Dark Mode - Dramatic Change */
+        body.dark-mode {
+            background: #0a0a0a !important;
+        }
+
+        body.dark-mode .glass-card,
+        body.dark-mode .project-tile,
+        body.dark-mode .timeline-glow {
+            background: rgba(0, 0, 0, 0.9) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        body.dark-mode section {
+            background: #0f0f0f !important;
+        }
+
+        body.dark-mode nav {
+            background: rgba(0, 0, 0, 0.98) !important;
+        }
+
+        body.dark-mode .text-gray-300,
+        body.dark-mode .text-gray-200 {
+            color: #e5e5e5 !important;
+        }
+
+        * {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -827,23 +855,19 @@
 
                 // Dark mode toggle
                 const themeToggle = document.getElementById('theme-toggle');
-                if(themeToggle) {
-                    if(localStorage.getItem('darkMode') === 'true') {
-                        document.body.classList.add('dark-mode');
-                        document.body.style.backgroundColor = "#17181aff";
-                    }
-                    themeToggle.addEventListener('click', () => {
-                        document.body.classList.toggle('dark-mode');
-                        const isDark = document.body.classList.contains('dark-mode');
-                        localStorage.setItem('darkMode', isDark);
-                        if(isDark) {
-                            document.body.style.backgroundColor = "#0b1120";
-                        } else {
-                            document.body.style.backgroundColor = "";
-                        }
-                    });
+                const body = document.body;
+
+                if (localStorage.getItem('darkMode') === 'true') {
+                    body.classList.add('dark-mode');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
                 }
 
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    localStorage.setItem('darkMode', isDark);
+                    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
                 // EmailJS
                 if(typeof emailjs !== 'undefined') {
                     emailjs.init("YOUR_PUBLIC_KEY");
