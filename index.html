@@ -402,33 +402,75 @@
             background: rgba(0, 0, 0, 0.6) !important;  /* Darker background */
             color: white !important;
         }
-                    /* Dark Mode - Dramatic Change */
+                
+                /* EXTREME DARK MODE - NIGHT & DAY DIFFERENCE */
         body.dark-mode {
-            background: #0a0a0a !important;
+            background: #000000 !important;
         }
 
         body.dark-mode .glass-card,
-        body.dark-mode .project-tile,
-        body.dark-mode .timeline-glow {
-            background: rgba(0, 0, 0, 0.9) !important;
-            border-color: rgba(255, 255, 255, 0.2) !important;
+        body.dark-mode .project-tile {
+            background: #111111 !important;
+            border: 1px solid #333333 !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
         }
 
         body.dark-mode section {
-            background: #0f0f0f !important;
+            background: #050505 !important;
         }
 
         body.dark-mode nav {
-            background: rgba(0, 0, 0, 0.98) !important;
+            background: #000000 !important;
+            border-bottom: 1px solid #222222 !important;
         }
 
+        body.dark-mode .timeline-glow {
+            background: #0a0a0a !important;
+            border-left-color: #3b82f6 !important;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #ffffff !important;
+        }
+
+        body.dark-mode p,
         body.dark-mode .text-gray-300,
         body.dark-mode .text-gray-200 {
-            color: #e5e5e5 !important;
+            color: #cccccc !important;
+        }
+
+        body.dark-mode .bg-white\/5 {
+            background: #1a1a1a !important;
+        }
+
+        body.dark-mode .border-white\/10 {
+            border-color: #333333 !important;
+        }
+
+        body.dark-mode .bg-black\/40 {
+            background: #000000 !important;
+        }
+
+        body.dark-mode .bg-gradient-to-br {
+            background: #000000 !important;
+        }
+
+        body.dark-mode footer {
+            background: #000000 !important;
+            border-top-color: #222222 !important;
+        }
+
+        /* Make images slightly darker in dark mode */
+        body.dark-mode img {
+            filter: brightness(0.85);
+            transition: filter 0.3s;
         }
 
         * {
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, border 0.2s ease, color 0.2s ease;
         }
     </style>
 </head>
