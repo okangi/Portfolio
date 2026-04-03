@@ -714,9 +714,9 @@
     </section>
     <!-- Footer -->
     <footer class="py-8 border-t border-white/10 text-center text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            © 2026 Cyprian Makori — Doctor of Code & Compassion. All visions crafted.
-        </div>
+    <div class="max-w-7xl mx-auto px-6">
+        Copyright © <span id="copyright-year">2026</span> Cyprian Makori. All rights reserved.
+    </div>
     </footer>
 
     <!-- ========== PDF MODAL - PLACED RIGHT HERE (After footer, before closing body) ========== -->
@@ -757,7 +757,7 @@
             </div>
         </div>
     </div>
-    <!-- ========== END PDF MODAL ========== -->
+                    <!-- ========== END PDF MODAL ========== -->
 
     <script>
         
@@ -1228,6 +1228,17 @@
                         if(pdfLoader) pdfLoader.classList.add('hide');
                     });
                 }
+                // Auto-update copyright year
+                function updateCopyrightYear() {
+                    const copyrightElement = document.getElementById('copyright-year');
+                    if (copyrightElement) {
+                        const currentYear = new Date().getFullYear();
+                        copyrightElement.textContent = currentYear;
+                    }
+                }
+
+                // Run when page loads
+                updateCopyrightYear();
     </script>
 </body>
 </html>
